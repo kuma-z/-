@@ -1,0 +1,42 @@
+# 二分查找
+
+```python
+def  binary_search(l, item):
+    start, end = 0, len(l) - 1
+    while start <= end:
+        mid = (start+end) // 2
+        guess = l[mid]
+        if guess == item:
+            return mid
+        elif guess > item:
+            end = mid - 1
+        else:
+            start = mid + 1
+    return None
+```
+
+递归
+
+```python
+def binary_search(l, key, start=0, end=len(l)):
+    mid = (start +  end) // 2
+    if start >= end:
+        return None
+    if l[mid] == key:
+        return mid
+    elif l[mid] > key:
+        return binary_search(l, key, start, mid-1)
+    else:
+        return binary_search(l, key, mid+1, end)
+```
+
+
+
+
+
+## 时间复杂度
+
+$$
+O(log_2n)
+$$
+
